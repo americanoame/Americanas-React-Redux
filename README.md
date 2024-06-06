@@ -2,7 +2,7 @@
 
 <table>
   <tr>
-    <td><img src="![Screenshot 2024-06-05 at 9 36 35 PM](https://github.com/americanoame/react-flip-cards/assets/77306236/c3bf58b7-8a24-46ae-bad2-98f7e498dbab)"><td>
+    <td><img src="https://github.com/americanoame/react-flip-cards/assets/77306236/c3bf58b7-8a24-46ae-bad2-98f7e498dbab)"><td>
   </tr>
 </table>
 
