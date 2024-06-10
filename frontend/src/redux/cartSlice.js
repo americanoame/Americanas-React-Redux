@@ -2,8 +2,10 @@ import { createSlice } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
 
 const initialState = {
-  selectedCategory: null,
+  
   cartItems: localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : [],
+  wishListItems: localStorage.getItem('wishListItems') ? JSON.parse(localStorage.getItem('wishListItems')) : [],
+  selectedCategory: null,
 };
 
 const cartSlice = createSlice({
@@ -31,9 +33,26 @@ const cartSlice = createSlice({
       }
       localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
     },
+
+    addToWishList(state, action) {
+      const existingItem = state.wishListItems.find((item) => item.id === action.payload.id);
+      
+      if (existingItem) {
+        toast.warning(`${existingItem.name} is already on the wish list`, {
+          position: 'top-center',
+        });
+      } else {
+        state.wishListItems.push({ ...action.payload, quantity: 1 });
+        toast.success(`${action.payload.name} added to wish list`, {
+          position: 'top-center',
+        });
+      }
+    
+      localStorage.setItem('wishListItems', JSON.stringify(state.wishListItems));
+    },
   },
 });
 
-export const {  setSelectedCategory, addToCart } = cartSlice.actions;
+export const {  setSelectedCategory, addToCart, addToWishList } = cartSlice.actions;
 
 export default cartSlice.reducer;
