@@ -9,6 +9,7 @@
 
 :root {
   --color-white: #fff;
+  --color-black: black;
   --color-blue: rgb(3, 24, 55);
   --color-red: red;
   --color-pink-ish: rgb(230, 0, 255);
@@ -16,6 +17,7 @@
   --color-border: rgb(231, 231, 231);
   --box-shadow: rgba(60, 64, 67, 0.15) 0 1px 2px 0, rgba(60, 64, 67, 0.15) 0 1px 3px 1px;
   --promotion-rgba: rgba(0, 0, 0, 0.5);
+  --product-price-color: brown;
 }
 
 body {
