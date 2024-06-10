@@ -8,6 +8,7 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
 
   const totalCartQuantity = useSelector((state) => state.cart.cartItems.reduce((total, item) => total + item.cartQuantity, 0));
+  const totalWishListQuantity = useSelector((state) => state.cart.wishListItems.length);
 
   const handleScroll = () => {
     const offset = window.scrollY;
@@ -41,7 +42,7 @@ const Navbar = () => {
           </a>
           <a className="wishlist-link header-link" href="/wishlist">
             <i className="fas fa-heart wishlist-icon"></i>
-            <div className="wishlist-quantity">1</div>
+            <div className="wishlist-quantity">{totalWishListQuantity}</div>
           </a>
         </div>
       </div>
