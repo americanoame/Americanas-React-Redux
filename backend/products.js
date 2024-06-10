@@ -34,6 +34,7 @@ const products = [
     price: 2400,
     category: 'room',
   },
+  
 ];
 
 
