@@ -1,5 +1,6 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useGetAllProductsQuery } from '../../redux/productsApi';
+import { addToCart } from '../../redux/cartSlice'
 import Promotion from '../../components/promotion/Promotion';
 import Categories from '../../components/categories/Categories';
 import './home.css';
@@ -7,17 +8,21 @@ import './home.css';
 const Home = () => {
   const selectedCategory = useSelector((state) => state.cart.selectedCategory);
   const { data, error, isLoading } = useGetAllProductsQuery();
+  const dispatch = useDispatch();
 
-  // Filter products based on selected category
-  // This logic first checks if selectedCategory is truthy. 
-  // If it is, it filters the data array to include only those 
-  // products with the matching category. If selectedCategory 
-  // is null, it assigns the entire data array to filteredProducts, 
-  // effectively displaying all products.
 
-  const filteredProducts = selectedCategory ? data?.filter((product) => product.category === selectedCategory) : data; // If selectedCategory is null, show all products
-  console.log('Filtered Products:', filteredProducts);
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product));
+    
+  };
 
+
+
+  const filteredProducts = selectedCategory ? data?.filter((product) => product.category === selectedCategory) : data; 
+  // console.log('Filtered Products:', filteredProducts);
+
+
+  
   return (
     <div className="home-container">
       {isLoading ? (
@@ -44,7 +49,7 @@ const Home = () => {
                   <div className="product-price">${(product.price / 100).toFixed(2)}</div>
                   <div className="product-quantity-container"></div>
 
-                  <button className="add-to-cart-button">Add to Cart</button>
+                  <button onClick={() => handleAddToCart(product)} className="add-to-cart-button">Add to Cart</button>
                   <button className="add-to-wishlist-button">
                     <i className="fas fa-heart wishlist-icon"></i>
                   </button>
