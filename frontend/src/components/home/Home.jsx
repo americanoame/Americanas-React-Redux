@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useGetAllProductsQuery } from '../../redux/productsApi';
-import { addToCart } from '../../redux/cartSlice'
+import { addToCart, addToWishList } from '../../redux/cartSlice';
 import Promotion from '../../components/promotion/Promotion';
 import Categories from '../../components/categories/Categories';
 import './home.css';
@@ -10,19 +10,17 @@ const Home = () => {
   const { data, error, isLoading } = useGetAllProductsQuery();
   const dispatch = useDispatch();
 
-
   const handleAddToCart = (product) => {
     dispatch(addToCart(product));
-    
   };
 
+  const handleAddToWishList = (product) => {
+    dispatch(addToWishList(product));
+  };
 
-
-  const filteredProducts = selectedCategory ? data?.filter((product) => product.category === selectedCategory) : data; 
+  const filteredProducts = selectedCategory ? data?.filter((product) => product.category === selectedCategory) : data;
   // console.log('Filtered Products:', filteredProducts);
 
-
-  
   return (
     <div className="home-container">
       {isLoading ? (
@@ -49,8 +47,10 @@ const Home = () => {
                   <div className="product-price">${(product.price / 100).toFixed(2)}</div>
                   <div className="product-quantity-container"></div>
 
-                  <button onClick={() => handleAddToCart(product)} className="add-to-cart-button">Add to Cart</button>
-                  <button className="add-to-wishlist-button">
+                  <button onClick={() => handleAddToCart(product)} className="add-to-cart-button">
+                    Add to Cart
+                  </button>
+                  <button onClick={() => handleAddToWishList(product)} className="add-to-wishlist-button">
                     <i className="fas fa-heart wishlist-icon"></i>
                   </button>
                 </div>
