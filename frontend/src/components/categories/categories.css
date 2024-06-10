@@ -1,0 +1,65 @@
+.cta-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+  align-items: center;
+}
+
+.cta-btn {
+  display: flex;
+}
+
+.cta-btn button {
+  background: none;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: color 0.5s;
+}
+
+.cta-btn button:hover,
+.cta-btn button.active-btn {
+  color: var(--color-pink-ish);
+}
+
+.cta-btn .active-btn {
+  text-decoration: none;
+}
+
+.all-products-button {
+  color: var(--color-pink-ish);
+}
+
+.filter-container {
+  display: flex;
+  align-items: center;
+}
+
+.filter-icon {
+  margin-right: 8px;
+  font-size: 22px;
+}
+
+.filter-option {
+  background-color: var(--color-black);
+  color: #fff;
+  border: none;
+  outline: none;
+}
+
+.filter-container select {
+  padding: 4px;
+  font-size: 16px;
+}
+
+@media screen and (max-width: 768px) {
+  .cta-btn button {
+    font-size: 11px;
+    text-align: center;
+  }
+
+  .cta-container {
+    text-align: center;
+  }
+}
