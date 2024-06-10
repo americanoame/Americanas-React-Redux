@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
 import img1 from '../../assets/americanas.png';
 import './navbar.css';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+
+  const totalCartQuantity = useSelector((state) => state.cart.cartItems.reduce((total, item) => total + item.cartQuantity, 0));
 
   const handleScroll = () => {
     const offset = window.scrollY;
@@ -34,7 +37,7 @@ const Navbar = () => {
         <div className="e-commerce-header-right">
           <a className="header-link" href="/cart">
             <i className="fas fa-shopping-bag cart-icon"></i>
-            <div className="cart-quantity">1</div>
+            <div className="cart-quantity">{totalCartQuantity}</div>
           </a>
           <a className="wishlist-link header-link" href="/wishlist">
             <i className="fas fa-heart wishlist-icon"></i>
