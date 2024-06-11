@@ -50,9 +50,18 @@ const cartSlice = createSlice({
     
       localStorage.setItem('wishListItems', JSON.stringify(state.wishListItems));
     },
+
+    removeFromWishList(state, action) {
+      const nextWishListItems = state.wishListItems.filter((item) => item.id !== action.payload.id);
+      state.wishListItems = nextWishListItems;
+      toast.error(`${action.payload.name} removed from wish list`, {
+        position: 'top-center',
+      });
+      localStorage.setItem('wishListItems', JSON.stringify(state.wishListItems));
+    },
   },
 });
 
-export const {  setSelectedCategory, addToCart, addToWishList } = cartSlice.actions;
+export const {  setSelectedCategory, addToCart, addToWishList, removeFromWishList } = cartSlice.actions;
 
 export default cartSlice.reducer;
