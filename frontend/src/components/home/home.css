@@ -99,7 +99,7 @@
   padding: 8px;
   border-radius: 50px;
   color: #fff;
-  /* background-color: var(--color-pink-ish); */
+  background-color: var(--color-pink-ish);
   border: none;
   border-radius: 8px;
   cursor: pointer;
