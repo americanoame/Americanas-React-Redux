@@ -15,17 +15,23 @@
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
+  color: black;
   transition: color 0.5s;
 }
+
+
+.cta-btn .active-btn {
+  text-decoration: underline;
+  color: var(--color-pink-ish);
+}
+
 
 .cta-btn button:hover,
 .cta-btn button.active-btn {
   color: var(--color-pink-ish);
 }
 
-.cta-btn .active-btn {
-  text-decoration: none;
-}
+
 
 .all-products-button {
   color: var(--color-pink-ish);
