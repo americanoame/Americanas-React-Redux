@@ -17,7 +17,9 @@ app.get('/products', (req, res) => {
 })
 
 app.use("*", (req, res) => {
-  res.sendFile( "../frontend/dist/index.html")
+  res.sendFile( "./index.html", {
+    root: "../frontend/dist"
+  })
 } )
 
 app.listen(port, console.log(`Server Listening on port ${port}`));
