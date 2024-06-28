@@ -7,7 +7,16 @@ const port = process.env.PORT || 3002;
 
 const app = express();
 
-app.use(cors());
+const corsOptions = {
+  origin: process.env.NODE_ENV === 'production'
+    ? 'https://americanas-f1732000c767.herokuapp.com' // Production URL
+    : 'http://127.0.0.1:5175', // Development URL
+  methods: ['GET', 'POST'],
+  allowedHeaders: ['Content-Type'],
+};
+
+app.use(cors(corsOptions));
+
 
 app.use(express.json());
 app.use(express.static( "../frontend/dist"))
