@@ -23,7 +23,7 @@ app.use('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
 });
 
-app.listen(port,  () => {
+app.listen(port, '0.0.0.0', () => {
   console.log(`Server Listening on port ${port}`);
 });
 
