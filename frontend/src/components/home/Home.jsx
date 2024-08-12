@@ -19,7 +19,7 @@ const Home = () => {
   };
 
   const filteredProducts = selectedCategory ? data?.filter((product) => product.category === selectedCategory) : data;
-  // console.log('Filtered Products:', filteredProducts);
+  console.log('Filtered Products:', filteredProducts);
 
   return (
     <div className="home-container">
@@ -27,7 +27,7 @@ const Home = () => {
         <div className="loading-container">{/* <p><Loading />Loading!!!</p> */}</div>
       ) : error ? (
         <div className="loading-container">
-          <p>An error occurred...</p>
+        <p>An error occurred: {error?.message || "Unable to load products"}</p>
         </div>
       ) : (
         <>
