@@ -1,0 +1,17 @@
+{
+  "name": "my-fullstack-app",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node index.js",
+    "build": "cd frontend && npm install && npm run build",
+    "postinstall": "npm run build"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "cors": "^2.8.5"
+  },
+  "engines": {
+    "node": ">=14.x"
+  }
+}
