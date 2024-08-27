@@ -2,7 +2,7 @@
 
 <table>
   <tr>
-    <td><img src="https://github.com/americanoame/react-flip-cards/assets/77306236/c3bf58b7-8a24-46ae-bad2-98f7e498dbab)"><td>
+    <td><img src="https://github.com/americanoame/react-flip-cards/assets/77306236/c3bf58b7-8a24-46ae-bad2-98f7e498dbab"><td>
     <td><img src="https://github.com/americanoame/State-Management-with-Redux/assets/77306236/ff6c7471-ab4b-47f7-8028-026357db09d4"><td>
   </tr>
 </table>
